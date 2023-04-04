@@ -2,28 +2,23 @@ package main
 
 import "fmt"
 
-func changeSlice(s []int) {
-	s[0] = 8
+func mutateSlice(s []int, idx, val int) {
+	s[idx] = val
 }
 
-func appendSlice(s []int) {
-	s = append(s, 8)
+func appendSlice(s []int, val int) {
+	s = append(s, val)
 }
 
 func Example1() {
-	//s := []int{1, 2}
-	s := make([]int, 3, 5)
-	s[0] = 1
-	s[1] = 2
+	nums := make([]int, 2, 3)
+	fmt.Println(nums)
 
-	changeSlice(s)
-	// [8,2]
+	appendSlice(nums, 1024)
+	fmt.Println(nums)
 
-	appendSlice(s)
-	// [8,2,0,0,0,0,0,0]
-
-	fmt.Println(s[2])
-	// [8,2]
+	mutateSlice(nums, 2, 512)
+	fmt.Println(nums)
 }
 
 func main() {
