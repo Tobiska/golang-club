@@ -21,6 +21,6 @@ func Example1() {
 	fmt.Println(nums)
 }
 
-func main() {
+func main6() {
 	Example1()
 }

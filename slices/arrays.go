@@ -6,7 +6,7 @@ import (
 	"unsafe"
 )
 
-func main() {
+func main123() {
 	arr5 := [5]int{1, 2, 3, 4, 5}
 	fmt.Printf("size: %d bt\n", reflect.TypeOf(arr5).Size()) // 40 bt
 

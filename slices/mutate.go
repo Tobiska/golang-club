@@ -10,7 +10,7 @@ func add(lst []int) {
 	lst = append(lst, 125)
 }
 
-func main() {
+func main11() {
 	lst := []int{1, 2, 3}
 
 	fmt.Printf("before mutate: %v\n", lst)
