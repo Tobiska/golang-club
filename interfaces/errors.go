@@ -25,7 +25,7 @@ func main() {
 	fmt.Println("custom error: ", returnCustomError() == nil)        //false
 	fmt.Println("custom error ptr: ", returnCustomPtrError() == nil) //false
 	fmt.Println("custom error nil: ", returnMyError() == nil)        //true
-	fmt.Println("custom error int nil: ", returnIntError() == nil)   //false
+	fmt.Println("custom error int nil: ", returnIntError() == nil)
 }
 
 func returnError() error {
@@ -57,7 +57,7 @@ func returnMyError() *MyErr {
 	return nil
 }
 
-func returnIntError() UnwrapError {
-	var err *MyErr
+func returnIntError() *UnwrapError {
+	var err *UnwrapError
 	return err
 }
