@@ -8,9 +8,11 @@ import (
 
 func read(ctx context.Context, ch chan int) {
 	for {
+		if err := ctx.Err(); err != nil {
+			return
+		}
 		select {
 		case <-ctx.Done():
-			close(ch)
 			return
 		case t := <-ch:
 			fmt.Printf("read %d\n", t)
@@ -20,8 +22,12 @@ func read(ctx context.Context, ch chan int) {
 
 func write(ctx context.Context, ch chan int) {
 	for i := 0; i < 10000000000; i++ {
+		if err := ctx.Err(); err != nil {
+			return
+		}
 		select {
 		case <-ctx.Done():
+			close(ch)
 			return
 		case ch <- i:
 			fmt.Printf("write %d\n", i)

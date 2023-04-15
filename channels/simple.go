@@ -20,4 +20,12 @@ func main() {
 
 	c <- 10
 	fmt.Println(<-c)
+
+	c1 := make(chan int, 2)
+
+	c1 <- 12
+
+	fmt.Println(<-c1)
+	fmt.Println(<-c1)
+	fmt.Println("finish")
 }
