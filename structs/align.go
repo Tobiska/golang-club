@@ -6,9 +6,10 @@ import (
 )
 
 type MyStructA struct {
-	i1 int8
-	i2 int8
-	fl float64 //8
+	f  bool
+	i1 int32
+	i2 int32
+	fl float64
 }
 
 func main() {

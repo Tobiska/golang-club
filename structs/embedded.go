@@ -30,9 +30,9 @@ type DD struct {
 }
 
 func main() {
-	AA{}.Foo()
-	BB{}.Foo()
-	CC{}.Foo()
+	AA{}.Foo() //aa
+	BB{}.Foo() //bb
+	CC{}.Foo() //bb
 
-	DD{AA{}}.Foo()
+	DD{AA{}}.Foo() //aa
 }
