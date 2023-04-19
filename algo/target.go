@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"golang.org/x/exp/slices"
 )
 
 /*
@@ -10,26 +9,33 @@ import (
 */
 
 func findTarget(data []int, t int) (int, int) {
-	slices.SortFunc(data, func(a, b int) bool {
-		return a < b
-	})
 
-	leftPtr := 0
-	rightPtr := len(data) - 1
-	for leftPtr < rightPtr {
-		sum := data[leftPtr] + data[rightPtr]
-		if sum == t {
-			return data[leftPtr], data[rightPtr]
-		}
-		if sum < t {
-			leftPtr++
-		} else {
-			rightPtr--
-		}
-	}
-	return -1, -1
 }
 
 func main() {
 	fmt.Println(findTarget([]int{1, 4, 2}, 5))
+}
+
+func tree2str(root *TreeNode) string {
+	if root == nil {
+		return `()`
+	}
+	return fmt.Sprintf(`%d(%s)(%s)`, root.Val, tree2str(root.Left), tree2str(root.Right))
+}
+
+func main() {
+	fmt.Println(tree2str(
+		&TreeNode{
+			Val: 1,
+			Left: &TreeNode{
+				Val: 2,
+				Left: &TreeNode{
+					Val: 4,
+				},
+			},
+			Right: &TreeNode{
+				Val: 3,
+			},
+		},
+	))
 }
