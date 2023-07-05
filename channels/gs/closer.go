@@ -12,6 +12,13 @@ type Closer struct {
 	funcs []Func
 }
 
+func NewCloser() *Closer {
+	return &Closer{
+		mu:    sync.Mutex{},
+		funcs: make([]Func, 0),
+	}
+}
+
 func (c *Closer) Add(f Func) {
 	c.mu.Lock()
 	defer c.mu.Unlock()

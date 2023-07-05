@@ -29,7 +29,7 @@ func calcCost(costs []int) (result int) {
 	return
 }
 
-func scanPurchases() (results []int, err error) {
+func ScanPurchases() (results []int, err error) {
 	var countPurchases int
 	_, err = fmt.Scanf("%d \n", &countPurchases)
 	if err != nil {
@@ -49,13 +49,14 @@ func scanPurchases() (results []int, err error) {
 			fmt.Fscanf(os.Stdin, "%d", &productSl[j])
 		}
 		results = append(results, calcCost(productSl))
+		fmt.Fscanf(os.Stdin, "\n")
 	}
 	return
 }
 
 func main() {
 
-	results, err := scanPurchases()
+	results, err := ScanPurchases()
 	if err != nil {
 		log.Fatalln(err)
 	}
