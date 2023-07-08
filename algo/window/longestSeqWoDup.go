@@ -1,4 +1,4 @@
-package window
+package main
 
 import "fmt"
 
@@ -22,6 +22,34 @@ func lengthOfLongestSubstring(s string) int {
 	return sizeLongestSeq
 }
 
+func indexOf(s []rune, needle rune) int {
+	for ind, ch := range s {
+		if ch == needle {
+			return ind
+		}
+	}
+	return -1
+}
+
+// O(n) O(n)
+func lengthOfLongestSubstringA(s string) int {
+	substring := make([]rune, 0)
+	maxLen := 1
+	for _, ch := range s {
+		if index := indexOf(substring, ch); index != -1 {
+			substring = substring[index+1:] // почему нет паники?
+		}
+
+		curLen := len(substring)
+		if maxLen < curLen {
+			maxLen = curLen
+		}
+		substring = append(substring, ch)
+	}
+
+	return maxLen
+}
+
 func main() {
-	fmt.Println(lengthOfLongestSubstring("11123456789111"))
+	fmt.Println(lengthOfLongestSubstringA("11"))
 }
