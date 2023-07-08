@@ -15,12 +15,12 @@ func Example1() {
 	fmt.Println(nums)
 
 	appendSlice(nums, 1024)
-	fmt.Println(nums)
+	fmt.Println(nums) // [0 0]
 
-	mutateSlice(nums, 2, 512)
+	mutateSlice(nums, 1, 512) // [0 512]
 	fmt.Println(nums)
 }
 
-func main6() {
+func main() {
 	Example1()
 }
