@@ -8,7 +8,6 @@ import (
 type MyStructA struct {
 	f  bool
 	i1 int32
-	i2 int32
 	fl float64
 }
 

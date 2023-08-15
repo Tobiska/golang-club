@@ -30,4 +30,9 @@ func main() {
 
 	var zeroValueArr [0]int
 	fmt.Printf("zero value: %v\n", zeroValueArr) // 0
+
+	var arr2, arr1 [16]byte
+	var arr3 [15]byte
+	fmt.Println(reflect.TypeOf(arr2) == reflect.TypeOf(arr3)) //false
+	fmt.Println(reflect.TypeOf(arr2) == reflect.TypeOf(arr1)) //true
 }
