@@ -54,13 +54,31 @@ func ScanPurchases() (results []int, err error) {
 	return
 }
 
+func searchInsert(nums []int, target int) int {
+	leftInd, rightInd := 0, len(nums)-1
+	for leftInd < rightInd {
+		mid := leftInd + (leftInd+rightInd)/2 // 0
+		if nums[mid] == target {
+			return mid
+		} else if nums[mid] > target {
+			rightInd = mid // 1
+		} else {
+			leftInd = mid + 1 // 0
+		}
+	}
+
+	return leftInd
+}
+
 func main() {
 
-	results, err := ScanPurchases()
-	if err != nil {
-		log.Fatalln(err)
-	}
-	for _, res := range results {
-		fmt.Println(res)
-	}
+	//results, err := ScanPurchases()
+	//if err != nil {
+	//	log.Fatalln(err)
+	//}
+	//for _, res := range results {
+	//	fmt.Println(res)
+	//}
+
+	fmt.Println(searchInsert([]int{1, 2, 3, 5}, 4))
 }
